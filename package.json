@@ -18,7 +18,11 @@
   },
   "license": "MIT",
   "scripts": {
+    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd",
     "build": "microbundle",
     "dev": "microbundle watch"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.0"
   }
 }
