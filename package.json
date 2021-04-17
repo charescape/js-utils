@@ -1,0 +1,24 @@
+{
+  "name": "@charescape/js-utils",
+  "version": "1.0.0",
+  "description": "Lightweight js utilities",
+  "keywords": [
+    "lightweight",
+    "utilities"
+  ],
+  "source": "src/index.js",
+  "main": "dist/js-utils.js",
+  "exports": "./dist/js-utils.modern.js",
+  "module": "dist/js-utils.module.js",
+  "umd:main": "dist/js-utils.umd.js",
+  "author": "Charescape <charescape@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charescape/js-utils"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  }
+}
