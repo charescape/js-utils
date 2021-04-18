@@ -30,15 +30,21 @@ export function isPlainObject(value) {
   if (!isObject(value)) {
     return false;
   }
-  if (isUndefined(value.constructor)) {
-    return true;
-  }
-  if (!isObject(value.constructor.prototype)) {
-    return false;
-  }
-  if (value.constructor.prototype.hasOwnProperty('isPrototypeOf') === false) {
+
+  // eg: Math [object Math], Error [object Function] ...
+  if (Object.prototype.toString.call(value) !== '[object Object]') {
     return false;
   }
 
-  return true;
+  // from lodash
+  if (Object.getPrototypeOf(value) === null) {
+    return true;
+  }
+
+  let prototypeOf = value;
+  while (Object.getPrototypeOf(prototypeOf) !== null) {
+    prototypeOf = Object.getPrototypeOf(prototypeOf);
+  }
+
+  return Object.getPrototypeOf(value) === prototypeOf;
 }
