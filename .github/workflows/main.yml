@@ -14,8 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cypress install
-        uses: cypress-io/github-action@v2
+      - uses: cypress-io/github-action@v2
         with:
           runTests: false
 
@@ -31,8 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cypress install
-        uses: cypress-io/github-action@v2
+      - uses: cypress-io/github-action@v2
         with:
           runTests: false
 
