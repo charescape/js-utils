@@ -9,6 +9,8 @@ on:
 
 jobs:
   demo-chrome-tests:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
     timeout-minutes: 15
     runs-on: ubuntu-latest
     strategy:
@@ -37,6 +39,8 @@ jobs:
           browser: chrome
 
   demo-chrome-mobile-tests:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
     timeout-minutes: 15
     runs-on: ubuntu-latest
     strategy:
@@ -62,6 +66,8 @@ jobs:
           browser: chrome
 
   demo-firefox-tests:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
@@ -89,6 +95,8 @@ jobs:
           browser: firefox
 
   demo-firefox-mobile-tests:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
@@ -117,6 +125,8 @@ jobs:
           browser: firefox
 
   demo-windows-tests:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
     runs-on: windows-latest
     timeout-minutes: 15
     strategy:
