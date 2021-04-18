@@ -7,8 +7,9 @@ export function isNull(value) {
 }
 
 export function isNil(value) {
-  return isUndefined(value) || isNull(value);
+  return value === undefined || value === null;
 }
+
 
 export function isTrue(value) {
   return value === true;
@@ -18,12 +19,49 @@ export function isFalse(value) {
   return value === false;
 }
 
+export function isBool(value) {
+  return value === true || value === false;
+}
+
+
+export function isNumber(value) {
+  return (typeof value === "number");
+}
+
+export function isString (value) {
+  return (typeof value === "string");
+}
+
+export function isStringFilled (value) {
+  return isString(value) && value.trim() !== "";
+}
+
+export function isStringEmpty (value) {
+  return isString(value) && value.trim() === "";
+}
+
 export function isArray(value) {
   return Array.isArray(value);
 }
 
+export function isArrayFilled(value) {
+  return isArray(value) && value.length > 0;
+}
+
+export function isArrayEmpty(value) {
+  return isArray(value) && value.length === 0;
+}
+
 export function isObject(value) {
-  return (typeof value === 'object') && !isNil(value) && !isArray(value);
+  return (typeof value === "object") && !isNil(value) && !isArray(value);
+}
+
+export function isObjectFilled(value) {
+  return isObject(value) && Object.keys(value).length > 0;
+}
+
+export function isObjectEmpty(value) {
+  return isObject(value) && Object.keys(value).length === 0;
 }
 
 export function isFunction(value) {
@@ -51,4 +89,12 @@ export function isPlainObject(value) {
   }
 
   return Object.getPrototypeOf(value) === prototypeOf;
+}
+
+export function isStringContainsString (haystack, needle) {
+  if (!isString(haystack) || !isString(needle)) {
+    return false;
+  }
+
+  return haystack.indexOf(needle) !== -1;
 }
