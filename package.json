@@ -1,7 +1,8 @@
 {
   "name": "@charescape/js-utils",
+  "amdName": "JsUtils",
   "version": "1.0.0",
-  "description": "Lightweight js utilities",
+  "description": "Lightweight javascript utilities for node.js and web",
   "keywords": [
     "lightweight",
     "utilities"
@@ -21,8 +22,8 @@
     "cypress:open": "cypress open",
     "build": "microbundle",
     "dev": "microbundle watch",
-    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd",
-    "test": "jest"
+    "test": "jest",
+    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
