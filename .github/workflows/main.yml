@@ -96,6 +96,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Get npm cache directory
+        id: npm-config-get-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-config-get-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - run: npm install
 
       - run: npx cypress info
