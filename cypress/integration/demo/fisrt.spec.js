@@ -4,12 +4,6 @@ describe('My 1st Test', () => {
   })
 })
 
-describe('My 3nd Test', () => {
-  it('Does not do much!', () => {
-    expect(true).to.equal(false)
-  })
-})
-
 /*
 
 1. Visit: https://example.cypress.io
