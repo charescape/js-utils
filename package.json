@@ -18,9 +18,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd",
+    "cypress:open": "cypress open",
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd"
   },
   "devDependencies": {
     "cypress": "^7.1.0",
