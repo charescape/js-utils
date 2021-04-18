@@ -28,15 +28,15 @@ export function isNumber(value) {
   return (typeof value === "number");
 }
 
-export function isString (value) {
+export function isString(value) {
   return (typeof value === "string");
 }
 
-export function isStringFilled (value) {
+export function isStringFilled(value) {
   return isString(value) && value.trim() !== "";
 }
 
-export function isStringEmpty (value) {
+export function isStringEmpty(value) {
   return isString(value) && value.trim() === "";
 }
 
@@ -91,7 +91,7 @@ export function isPlainObject(value) {
   return Object.getPrototypeOf(value) === prototypeOf;
 }
 
-export function isStringContainsString (haystack, needle) {
+export function isStringContainsString(haystack, needle) {
   if (!isString(haystack) || !isString(needle)) {
     return false;
   }
