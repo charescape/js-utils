@@ -12,6 +12,9 @@
   "exports": "./dist/js-utils.modern.js",
   "module": "dist/js-utils.module.js",
   "umd:main": "dist/js-utils.umd.js",
+  "files": [
+    "dist"
+  ],
   "author": "Charescape <charescape@outlook.com>",
   "repository": {
     "type": "git",
@@ -23,7 +26,9 @@
     "build": "microbundle",
     "dev": "microbundle watch",
     "test": "jest",
-    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd"
+    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd",
+    "do-npm-login": "npm login --registry=https://registry.npmjs.org -dd",
+    "do-npm-publish": "npm publish . --registry=https://registry.npmjs.org -dd"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
