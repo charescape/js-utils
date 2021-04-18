@@ -11,15 +11,19 @@ export function isNil(value) {
 }
 
 export function isTrue(value) {
-  return value === true
+  return value === true;
 }
 
 export function isFalse(value) {
-  return value === false
+  return value === false;
+}
+
+export function isArray(value) {
+  return Array.isArray(value);
 }
 
 export function isObject(value) {
-  return (typeof value === 'object') && isNil(value) === false && Array.isArray(value) === false;
+  return (typeof value === 'object') && !isNil(value) && !isArray(value);
 }
 
 export function isPlainObject(value) {
