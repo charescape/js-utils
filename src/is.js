@@ -26,6 +26,10 @@ export function isObject(value) {
   return (typeof value === 'object') && !isNil(value) && !isArray(value);
 }
 
+export function isFunction(value) {
+  return isObject(value) && (typeof value === "function");
+}
+
 export function isPlainObject(value) {
   if (!isObject(value)) {
     return false;
