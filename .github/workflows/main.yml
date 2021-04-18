@@ -36,7 +36,7 @@ jobs:
 
       - run: yarn build:ci
 
-  ui-chrome-tests:
+  demo-chrome-tests:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.16.0-chrome89-ff86
@@ -50,7 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: "UI Tests - Chrome"
+      - name: "Demo Tests - Chrome"
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
@@ -61,10 +61,10 @@ jobs:
           browser: chrome
           record: false
           parallel: false
-          group: "UI - Chrome"
-          spec: cypress/tests/ui/*
+          group: "Demo - Chrome"
+          spec: cypress/tests/demo/*
 
-  ui-chrome-mobile-tests:
+  demo-chrome-mobile-tests:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.16.0-chrome89-ff86
@@ -78,7 +78,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: "UI Tests - Chrome - Mobile"
+      - name: "Demo Tests - Chrome - Mobile"
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
@@ -90,10 +90,10 @@ jobs:
           browser: chrome
           record: false
           parallel: false
-          group: "UI - Chrome - Mobile"
-          spec: cypress/tests/ui/*
+          group: "Demo - Chrome - Mobile"
+          spec: cypress/tests/demo/*
 
-  ui-firefox-tests:
+  demo-firefox-tests:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
@@ -109,7 +109,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: "UI Tests - Firefox"
+      - name: "Demo Tests - Firefox"
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
@@ -120,10 +120,10 @@ jobs:
           browser: firefox
           record: false
           parallel: false
-          group: "UI - Firefox"
-          spec: cypress/tests/ui/*
+          group: "Demo - Firefox"
+          spec: cypress/tests/demo/*
 
-  ui-firefox-mobile-tests:
+  demo-firefox-mobile-tests:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
@@ -139,7 +139,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: "UI Tests - Firefox - Mobile"
+      - name: "Demo Tests - Firefox - Mobile"
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
@@ -151,10 +151,10 @@ jobs:
           browser: firefox
           record: false
           parallel: false
-          group: "UI - Firefox - Mobile"
-          spec: cypress/tests/ui/*
+          group: "Demo - Firefox - Mobile"
+          spec: cypress/tests/demo/*
 
-  ui-windows-tests:
+  demo-windows-tests:
     timeout-minutes: 40
     runs-on: windows-latest
     needs: install-on-windows-latest
@@ -167,7 +167,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: "UI Tests - Electron - Windows"
+      - name: "Demo Tests - Electron - Windows"
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
@@ -177,5 +177,5 @@ jobs:
           wait-on-timeout: 120
           record: false
           parallel: false
-          group: "UI - Electron - Windows"
-          spec: cypress/tests/ui/*
+          group: "Demo - Electron - Windows"
+          spec: cypress/tests/demo/*
