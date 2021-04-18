@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 
 jobs:
-  install:
+  install-on-ubuntu-latest:
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.16.0-chrome89-ff86
     steps:
@@ -40,7 +40,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.16.0-chrome89-ff86
-    needs: install
+    needs: install-on-ubuntu-latest
     strategy:
       # when one test fails, DO NOT cancel the other
       # containers, because this will kill Cypress processes
@@ -68,7 +68,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.16.0-chrome89-ff86
-    needs: install
+    needs: install-on-ubuntu-latest
     strategy:
       # when one test fails, DO NOT cancel the other
       # containers, because this will kill Cypress processes
@@ -99,7 +99,7 @@ jobs:
     container:
       image: cypress/browsers:node14.16.0-chrome89-ff86
       options: --user 1001
-    needs: install
+    needs: install-on-ubuntu-latest
     strategy:
       # when one test fails, DO NOT cancel the other
       # containers, because this will kill Cypress processes
@@ -129,7 +129,7 @@ jobs:
     container:
       image: cypress/browsers:node14.16.0-chrome89-ff86
       options: --user 1001
-    needs: install
+    needs: install-on-ubuntu-latest
     strategy:
       # when one test fails, DO NOT cancel the other
       # containers, because this will kill Cypress processes
@@ -157,7 +157,7 @@ jobs:
   ui-windows-tests:
     timeout-minutes: 40
     runs-on: windows-latest
-    needs: install-windows
+    needs: install-on-ubuntu-latest-windows
     strategy:
       # when one test fails, DO NOT cancel the other
       # containers, because this will kill Cypress processes
