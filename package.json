@@ -21,7 +21,8 @@
     "cypress:open": "cypress open",
     "build": "microbundle",
     "dev": "microbundle watch",
-    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd"
+    "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd",
+    "test": "jest"
   },
   "devDependencies": {
     "cypress": "^7.1.0",
