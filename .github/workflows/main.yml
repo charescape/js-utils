@@ -19,17 +19,6 @@ jobs:
 
       - run: npx cypress info
 
-  install-on-windows-latest:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: cypress-io/github-action@v2
-        with:
-          runTests: false
-
-      - run: npx cypress info
-
   demo-chrome-tests:
     timeout-minutes: 15
     runs-on: ubuntu-latest
@@ -123,19 +112,19 @@ jobs:
           spec: cypress/tests/demo/*
 
   demo-windows-tests:
-    timeout-minutes: 40
     runs-on: windows-latest
-    needs: install-on-windows-latest
+    timeout-minutes: 15
     strategy:
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
 
+      - run: npx cypress info
+
       - name: "Demo Tests - Electron - Windows"
         uses: cypress-io/github-action@v2
         with:
-          # we have already installed all dependencies above
-          install: false
+          install: true
           record: false
           parallel: false
           group: "Demo - Electron - Windows"
