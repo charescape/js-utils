@@ -124,7 +124,6 @@ jobs:
       - name: "Demo Tests - Electron - Windows"
         uses: cypress-io/github-action@v2
         with:
-          install: true
           record: false
           parallel: false
           group: "Demo - Electron - Windows"
