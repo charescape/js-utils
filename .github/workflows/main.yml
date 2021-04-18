@@ -49,9 +49,6 @@ jobs:
       # leaving the Dashboard hanging ...
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v2
 
@@ -65,7 +62,7 @@ jobs:
           wait-on-timeout: 120
           browser: chrome
           record: false
-          parallel: true
+          parallel: false
           group: "UI - Chrome"
           spec: cypress/tests/ui/*
 
@@ -80,9 +77,6 @@ jobs:
       # leaving the Dashboard hanging ...
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v2
 
@@ -97,7 +91,7 @@ jobs:
           wait-on-timeout: 120
           browser: chrome
           record: false
-          parallel: true
+          parallel: false
           group: "UI - Chrome - Mobile"
           spec: cypress/tests/ui/*
 
@@ -114,9 +108,6 @@ jobs:
       # leaving the Dashboard hanging ...
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v2
 
@@ -130,7 +121,7 @@ jobs:
           wait-on-timeout: 120
           browser: firefox
           record: false
-          parallel: true
+          parallel: false
           group: "UI - Firefox"
           spec: cypress/tests/ui/*
 
@@ -147,9 +138,6 @@ jobs:
       # leaving the Dashboard hanging ...
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v2
 
@@ -164,7 +152,7 @@ jobs:
           wait-on-timeout: 120
           browser: firefox
           record: false
-          parallel: true
+          parallel: false
           group: "UI - Firefox - Mobile"
           spec: cypress/tests/ui/*
 
@@ -178,9 +166,6 @@ jobs:
       # leaving the Dashboard hanging ...
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v2
 
@@ -193,6 +178,6 @@ jobs:
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           record: false
-          parallel: true
+          parallel: false
           group: "UI - Electron - Windows"
           spec: cypress/tests/ui/*
