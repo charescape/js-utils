@@ -2,6 +2,7 @@
 import _camelCase from 'lodash-es/camelCase.js';
 import _upperFirst from 'lodash-es/upperFirst.js';
 
+import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 
 const pkgs = [];
@@ -12,7 +13,7 @@ const pkgs = [];
 ].forEach((pkg) => {
   const isCombined = pkg.name === 'index';
 
-  const inputPath = `src/${pkg.name}.js`;
+  const inputPath = `src/${pkg.name}.ts`;
 
   let outputName = `JsUtils`;
   let outputFileDir = `dist`;
@@ -26,6 +27,7 @@ const pkgs = [];
 
   pkgs.push({
     input: inputPath,
+    plugins: [typescript()],
     output: [
       {
         name: outputName,
