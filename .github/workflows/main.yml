@@ -141,7 +141,9 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ${{ steps.npm-config-get-cache.outputs.dir }}
+          path: |
+            ${{ steps.npm-config-get-cache.outputs.dir }}
+            ~/.cache/Cypress
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
