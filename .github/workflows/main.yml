@@ -37,6 +37,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
+          record: false
 
   demo-chrome-mobile-tests:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
@@ -64,6 +65,7 @@ jobs:
         with:
           config: "viewportWidth=375,viewportHeight=667"
           browser: chrome
+          record: false
 
   demo-firefox-tests:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
@@ -93,6 +95,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: firefox
+          record: false
 
   demo-firefox-mobile-tests:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
@@ -123,6 +126,7 @@ jobs:
         with:
           config: "viewportWidth=375,viewportHeight=667"
           browser: firefox
+          record: false
 
   demo-windows-tests:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
@@ -154,3 +158,5 @@ jobs:
 
       - name: "Demo Tests - Electron - Windows"
         uses: cypress-io/github-action@v2
+        with:
+          record: false
