@@ -68,7 +68,7 @@ var JsUtils = (function (exports) {
   }
 
   function isFunction(value) {
-    return isObject(value) && (typeof value === "function");
+    return (typeof value === "function") && isObject(value);
   }
 
   function isPlainObject(value) {
@@ -77,11 +77,11 @@ var JsUtils = (function (exports) {
     }
 
     // eg: Math [object Math], Error [object Function] ...
-    if (Object.prototype.toString.call(value) !== '[object Object]') {
+    if (Object.prototype.toString.call(value) !== "[object Object]") {
       return false;
     }
 
-    // from lodash
+    // following lodash: https://github.com/lodash/lodash/blob/master/isPlainObject.js#L34-L41
     if (Object.getPrototypeOf(value) === null) {
       return true;
     }
