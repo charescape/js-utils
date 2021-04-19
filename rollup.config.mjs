@@ -13,11 +13,14 @@ const pkgs = [];
   const isCombined = pkg.name === 'index';
 
   const inputPath = `src/${pkg.name}.js`;
+
   let outputName = `JsUtils`;
+  let outputFileDir = `dist`;
   let outputFileName = `js-utils`;
 
   if (!isCombined) {
     outputName += `_${_upperFirst(_camelCase(pkg.name))}`;
+    outputFileDir += `/${pkg.name}`;
     outputFileName += `.${pkg.name}`;
   }
 
@@ -26,35 +29,35 @@ const pkgs = [];
     output: [
       {
         name: outputName,
-        file: `dist/${outputFileName}.cjs.js`,
+        file: `${outputFileDir}/${outputFileName}.cjs.js`,
         format: 'cjs'
       },
       {
         name: outputName,
-        file: `dist/${outputFileName}.esm.js`,
+        file: `${outputFileDir}/${outputFileName}.esm.js`,
         format: 'esm'
       },
 
       {
         name: outputName,
-        file: `dist/${outputFileName}.iife.js`,
+        file: `${outputFileDir}/${outputFileName}.iife.js`,
         format: 'iife'
       },
       {
         name: outputName,
-        file: `dist/${outputFileName}.iife.min.js`,
+        file: `${outputFileDir}/${outputFileName}.iife.min.js`,
         format: 'iife',
         plugins: [terser()]
       },
 
       {
         name: outputName,
-        file: `dist/${outputFileName}.umd.js`,
+        file: `${outputFileDir}/${outputFileName}.umd.js`,
         format: 'umd'
       },
       {
         name: outputName,
-        file: `dist/${outputFileName}.umd.min.js`,
+        file: `${outputFileDir}/${outputFileName}.umd.min.js`,
         format: 'umd',
         plugins: [terser()]
       }
