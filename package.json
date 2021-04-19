@@ -35,5 +35,8 @@
     "lodash-es": "^4.17.21",
     "rollup": "^2.45.0",
     "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
   }
 }
