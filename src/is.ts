@@ -1,74 +1,75 @@
-export function isUndefined(value) {
+
+export function isUndefined(value: any): boolean {
   return value === undefined;
 }
 
-export function isNull(value) {
+export function isNull(value: any): boolean {
   return value === null;
 }
 
-export function isNil(value) {
+export function isNil(value: any): boolean {
   return value === undefined || value === null;
 }
 
 
-export function isTrue(value) {
+export function isTrue(value: any): boolean {
   return value === true;
 }
 
-export function isFalse(value) {
+export function isFalse(value: any): boolean {
   return value === false;
 }
 
-export function isBool(value) {
+export function isBool(value: any): boolean {
   return value === true || value === false;
 }
 
 
-export function isNumber(value) {
+export function isNumber(value: any): boolean {
   return (typeof value === "number");
 }
 
-export function isString(value) {
+export function isString(value: any): boolean {
   return (typeof value === "string");
 }
 
-export function isStringFilled(value) {
+export function isStringFilled(value: any): boolean {
   return isString(value) && value.trim() !== "";
 }
 
-export function isStringEmpty(value) {
+export function isStringEmpty(value: any): boolean {
   return isString(value) && value.trim() === "";
 }
 
-export function isArray(value) {
+export function isArray(value: any): boolean {
   return Array.isArray(value);
 }
 
-export function isArrayFilled(value) {
+export function isArrayFilled(value: any): boolean {
   return isArray(value) && value.length > 0;
 }
 
-export function isArrayEmpty(value) {
+export function isArrayEmpty(value: any): boolean {
   return isArray(value) && value.length === 0;
 }
 
-export function isObject(value) {
+export function isObject(value: any): boolean {
   return (typeof value === "object") && !isNil(value) && !isArray(value);
 }
 
-export function isObjectFilled(value) {
+export function isObjectFilled(value: any): boolean {
   return isObject(value) && Object.keys(value).length > 0;
 }
 
-export function isObjectEmpty(value) {
+export function isObjectEmpty(value: any): boolean {
   return isObject(value) && Object.keys(value).length === 0;
 }
 
-export function isFunction(value) {
+export function isFunction(value: any): boolean {
   return (typeof value === "function") && isObject(value);
 }
 
-export function isPlainObject(value) {
+export function isPlainObject(value: any): boolean {
   if (!isObject(value)) {
     return false;
   }
@@ -91,7 +92,7 @@ export function isPlainObject(value) {
   return Object.getPrototypeOf(value) === prototypeOf;
 }
 
-export function isStringContainsString(haystack, needle) {
+export function isStringContainsString(haystack: any, needle: any): boolean {
   if (!isString(haystack) || !isString(needle)) {
     return false;
   }
