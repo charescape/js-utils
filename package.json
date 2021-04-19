@@ -29,6 +29,8 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.1",
     "@types/jest": "^26.0.22",
+    "@types/qs": "^6.9.6",
+    "axios": "^0.21.1",
     "cypress": "^7.1.0",
     "jest": "^26.6.3",
     "lodash-es": "^4.17.21",
