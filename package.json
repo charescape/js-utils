@@ -8,6 +8,7 @@
   ],
   "main": "dist/js-utils.cjs.js",
   "module": "dist/js-utils.esm.js",
+  "types": "types/index.d.ts",
   "files": [
     "src",
     "dist"
