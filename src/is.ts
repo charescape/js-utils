@@ -1,32 +1,32 @@
 
 export function isUndefined(value: any): boolean {
-  return value === undefined;
+  return Object.is(value, undefined);
 }
 
 export function isNull(value: any): boolean {
-  return value === null;
+  return Object.is(value, null);
 }
 
 export function isNil(value: any): boolean {
-  return value === undefined || value === null;
+  return isUndefined(value) || isNull(value);
 }
 
 
 export function isTrue(value: any): boolean {
-  return value === true;
+  return Object.is(value, true);
 }
 
 export function isFalse(value: any): boolean {
-  return value === false;
+  return Object.is(value, false);
 }
 
-export function isBool(value: any): boolean {
-  return value === true || value === false;
+export function isBoolean(value: any): boolean {
+  return isTrue(value) || isFalse(value);
 }
 
 
 export function isNumber(value: any): boolean {
-  return (typeof value === "number") && !Number.isNaN(value);
+  return (typeof value === "number") && !Object.is(value, NaN);
 }
 
 export function isString(value: any): boolean {

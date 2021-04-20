@@ -44,5 +44,6 @@ test('isNumber', () => {
   expect(JsUtils.isNumber( +1 )).toBe(true);
   expect(JsUtils.isNumber( -1 )).toBe(true);
 
+  expect(JsUtils.isNumber( Number.NaN )).toBe(false);
   expect(JsUtils.isNumber( NaN )).toBe(false);
 });
