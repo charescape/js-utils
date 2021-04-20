@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.1",
+    "@tsconfig/recommended": "^1.0.1",
     "@types/jest": "^26.0.22",
     "@types/qs": "^6.9.6",
     "axios": "^0.21.1",
