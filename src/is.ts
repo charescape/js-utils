@@ -73,6 +73,10 @@ export function isFunction(value: any): boolean {
   return (typeof value === "function") && isObject(value);
 }
 
+export function isFalsyValue(value: any): boolean {
+  return isNil(value) || isFalse(value) || Object.is(value, NaN) || isNumberZero(value) || isStringEmpty(value);
+}
+
 export function isPlainObject(value: any): boolean {
   if (!isObject(value)) {
     return false;
