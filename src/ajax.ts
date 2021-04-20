@@ -21,13 +21,13 @@ export function ajaxCreate(axios: AxiosStatic, config: AxiosRequestConfig): Axio
     responseType: 'json',
   };
 
-  config = {...defaultConfig, config};
+  const internalConfig = {...defaultConfig, ...config};
 
   // if (!isPlainObject(config.headers)) {
   //   config.headers = {};
   // }
 
-  return axios.create(config);
+  return axios.create(internalConfig);
 
   // instance.defaults.baseURL = 'https://api.example.com';
   // instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
