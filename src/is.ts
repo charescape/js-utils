@@ -26,7 +26,7 @@ export function isBoolean(value: any): boolean {
 
 
 export function isNumber(value: any): boolean {
-  return (typeof value === "number") && !Object.is(value, NaN);
+  return (typeof value === "number") || (typeof value === "bigint") && !Object.is(value, NaN);
 }
 
 export function isString(value: any): boolean {
