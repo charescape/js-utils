@@ -6,6 +6,8 @@
     "javascript",
     "utilities"
   ],
+  "main": "dist/js-utils.cjs.js",
+  "module": "dist/js-utils.esm.js",
   "files": [
     "src",
     "dist"
