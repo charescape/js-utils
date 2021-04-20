@@ -4,6 +4,8 @@
     "target": "ES5",
     "module": "ESNext",
     "declaration": true,
-    "sourceMap": false
+    "sourceMap": false,
+    "outDir": "./dist",
+    "declarationDir": "./types"
   }
 }
