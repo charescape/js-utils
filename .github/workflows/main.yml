@@ -9,7 +9,7 @@ on:
 
 jobs:
   demo-chrome-tests:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    if: "contains(github.event.head_commit.message, 'cy ci')"
 
     timeout-minutes: 15
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
           browser: chrome
 
   demo-chrome-mobile-tests:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    if: "contains(github.event.head_commit.message, 'cy ci')"
 
     timeout-minutes: 15
     runs-on: ubuntu-latest
@@ -66,7 +66,7 @@ jobs:
           browser: chrome
 
   demo-firefox-tests:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    if: "contains(github.event.head_commit.message, 'cy ci')"
 
     timeout-minutes: 15
     runs-on: ubuntu-latest
@@ -95,7 +95,7 @@ jobs:
           browser: firefox
 
   demo-firefox-mobile-tests:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    if: "contains(github.event.head_commit.message, 'cy ci')"
 
     timeout-minutes: 15
     runs-on: ubuntu-latest
@@ -125,7 +125,7 @@ jobs:
           browser: firefox
 
   demo-windows-tests:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    if: "contains(github.event.head_commit.message, 'cy ci')"
 
     runs-on: windows-latest
     timeout-minutes: 15
