@@ -26,7 +26,7 @@ export function isBool(value: any): boolean {
 
 
 export function isNumber(value: any): boolean {
-  return (typeof value === "number");
+  return (typeof value === "number") && !Number.isNaN(value);
 }
 
 export function isString(value: any): boolean {
