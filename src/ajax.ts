@@ -27,6 +27,7 @@ export function ajaxCreate(axios: AxiosStatic, config: AxiosRequestConfig): Axio
   //   config.headers = {};
   // }
 
+  // @ts-ignore
   return axios.create(internalConfig);
 
   // instance.defaults.baseURL = 'https://api.example.com';
