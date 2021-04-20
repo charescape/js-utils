@@ -47,3 +47,35 @@ test('isNumber', () => {
   expect(JsUtils.isNumber( Number.NaN )).toBe(false);
   expect(JsUtils.isNumber( NaN )).toBe(false);
 });
+
+test('isNumberZero', () => {
+  expect(JsUtils.isNumberZero( 0 )).toBe(true);
+  expect(JsUtils.isNumberZero( 0.0 )).toBe(true);
+  expect(JsUtils.isNumberZero( 0.00 )).toBe(true);
+  expect(JsUtils.isNumberZero( 0.000 )).toBe(true);
+  expect(JsUtils.isNumberZero( 0x0 )).toBe(true);
+  expect(JsUtils.isNumberZero( -0 )).toBe(true);
+  expect(JsUtils.isNumberZero( -0.0 )).toBe(true);
+  expect(JsUtils.isNumberZero( -0.00 )).toBe(true);
+  expect(JsUtils.isNumberZero( -0.000 )).toBe(true);
+  expect(JsUtils.isNumberZero( -0x0 )).toBe(true);
+  expect(JsUtils.isNumberZero( 0n )).toBe(true);
+  expect(JsUtils.isNumberZero( 0x0n )).toBe(true);
+
+
+  expect(JsUtils.isNumberZero( null )).toBe(false);
+  expect(JsUtils.isNumberZero( undefined )).toBe(false);
+  expect(JsUtils.isNumberZero( '' )).toBe(false);
+  expect(JsUtils.isNumberZero( ' ' )).toBe(false);
+  expect(JsUtils.isNumberZero( '0' )).toBe(false);
+  expect(JsUtils.isNumberZero( '0.0' )).toBe(false);
+  expect(JsUtils.isNumberZero( false )).toBe(false);
+  expect(JsUtils.isNumberZero( 1 )).toBe(false);
+  expect(JsUtils.isNumberZero( 0.1 )).toBe(false);
+  expect(JsUtils.isNumberZero( 0.01 )).toBe(false);
+  expect(JsUtils.isNumberZero( -1 )).toBe(false);
+  expect(JsUtils.isNumberZero( -0.1 )).toBe(false);
+  expect(JsUtils.isNumberZero( -0.01 )).toBe(false);
+  expect(JsUtils.isNumberZero( Number.NaN )).toBe(false);
+  expect(JsUtils.isNumberZero( NaN )).toBe(false);
+});
