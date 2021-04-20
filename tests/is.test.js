@@ -1,6 +1,6 @@
 const JsUtils = require('../dist/js-utils.umd');
 
-test('JsUtils.isPlainObject', () => {
+test('isPlainObject', () => {
   function ObjectConstructor() {}
   ObjectConstructor.prototype.constructor = Object;
 
@@ -36,4 +36,13 @@ test('JsUtils.isPlainObject', () => {
 
   const foo = new FnFoo; foo.constructor = Object;
   expect(JsUtils.isPlainObject(foo)).toBe(false);
+});
+
+test('isNumber', () => {
+  expect(JsUtils.isNumber( 1 )).toBe(true);
+  expect(JsUtils.isNumber( 0 )).toBe(true);
+  expect(JsUtils.isNumber( +1 )).toBe(true);
+  expect(JsUtils.isNumber( -1 )).toBe(true);
+
+  expect(JsUtils.isNumber( NaN )).toBe(false);
 });
