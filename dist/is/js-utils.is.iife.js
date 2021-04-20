@@ -64,7 +64,7 @@ var JsUtils_Is = (function (exports) {
         if (Object.getPrototypeOf(value) === null) {
             return true;
         }
-        let prototypeOf = value;
+        var prototypeOf = value;
         while (Object.getPrototypeOf(prototypeOf) !== null) {
             prototypeOf = Object.getPrototypeOf(prototypeOf);
         }
