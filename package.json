@@ -25,8 +25,8 @@
     "dev": "rollup -c -w",
     "cypress:open": "cypress open",
     "test": "npm run build && npm run test:node && npm run test:jsdom",
-    "test:node": "jest   --env=node --errorOnDeprecated --coverage --coverageProvider=v8 --verbose",
-    "test:jsdom": "jest --env=jsdom --errorOnDeprecated --coverage --coverageProvider=v8 --verbose",
+    "test:node": "jest   --env=node --errorOnDeprecated --coverage --coverageProvider=v8 --colors --verbose",
+    "test:jsdom": "jest --env=jsdom --errorOnDeprecated --coverage --coverageProvider=v8 --colors --verbose",
     "redo-install": "rm -rf node_modules/ && rm -f package-lock.json && npm install --registry=https://registry.npmjs.org -dd",
     "do-npm-login": "npm login --registry=https://registry.npmjs.org -dd",
     "do-npm-publish": "npm publish . --access public --registry=https://registry.npmjs.org -dd"
