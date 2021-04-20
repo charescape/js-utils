@@ -1,4 +1,5 @@
 
+// Undefined, Null
 export function isUndefined(value: any): boolean {
   return Object.is(value, undefined);
 }
@@ -12,6 +13,7 @@ export function isNil(value: any): boolean {
 }
 
 
+// Boolean
 export function isTrue(value: any): boolean {
   return Object.is(value, true);
 }
@@ -25,14 +27,13 @@ export function isBoolean(value: any): boolean {
 }
 
 
+// Number
 export function isNumber(value: any): boolean {
   return ((typeof value === "number") || (typeof value === "bigint")) && !Object.is(value, NaN);
 }
 
-export function isNumberZero(value: any): boolean {
-  return isNumber(value) && (value == 0);
-}
 
+// String
 export function isString(value: any): boolean {
   return (typeof value === "string");
 }
@@ -45,6 +46,8 @@ export function isStringEmpty(value: any): boolean {
   return isString(value) && value.trim() === "";
 }
 
+
+// Array
 export function isArray(value: any): boolean {
   return Array.isArray(value);
 }
@@ -57,8 +60,10 @@ export function isArrayEmpty(value: any): boolean {
   return isArray(value) && value.length === 0;
 }
 
+
+// Object
 export function isObject(value: any): boolean {
-  return (typeof value === "object") && !isNil(value) && !isArray(value);
+  return (typeof value === "object") && !isNull(value) && !isArray(value);
 }
 
 export function isObjectFilled(value: any): boolean {
@@ -67,14 +72,6 @@ export function isObjectFilled(value: any): boolean {
 
 export function isObjectEmpty(value: any): boolean {
   return isObject(value) && Object.keys(value).length === 0;
-}
-
-export function isFunction(value: any): boolean {
-  return (typeof value === "function") && isObject(value);
-}
-
-export function isFalsyValue(value: any): boolean {
-  return isNil(value) || isFalse(value) || Object.is(value, NaN) || isNumberZero(value) || isStringEmpty(value);
 }
 
 export function isPlainObject(value: any): boolean {
@@ -100,10 +97,32 @@ export function isPlainObject(value: any): boolean {
   return Object.getPrototypeOf(value) === prototypeOf;
 }
 
+
+// Function
+export function isFunction(value: any): boolean {
+  return (typeof value === "function");
+}
+
+
+// Symbol
+export function isSymbol(value: any): boolean {
+  return (typeof value === "symbol");
+}
+
+
+// Others
+export function isFalsyValue(value: any): boolean {
+  return isNil(value) || isFalse(value) || Object.is(value, NaN) || isNumberZero(value) || isStringEmpty(value);
+}
+
 export function isStringContainsString(haystack: any, needle: any): boolean {
   if (!isString(haystack) || !isString(needle)) {
     return false;
   }
 
   return haystack.indexOf(needle) !== -1;
+}
+
+export function isNumberZero(value: any): boolean {
+  return isNumber(value) && (value == 0);
 }
