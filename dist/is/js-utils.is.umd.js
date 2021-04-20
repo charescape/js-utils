@@ -4,27 +4,31 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JsUtils_Is = {}));
 }(this, (function (exports) { 'use strict';
 
+    // Undefined, Null
     function isUndefined(value) {
-        return value === undefined;
+        return Object.is(value, undefined);
     }
     function isNull(value) {
-        return value === null;
+        return Object.is(value, null);
     }
     function isNil(value) {
-        return value === undefined || value === null;
+        return isUndefined(value) || isNull(value);
     }
+    // Boolean
     function isTrue(value) {
-        return value === true;
+        return Object.is(value, true);
     }
     function isFalse(value) {
-        return value === false;
+        return Object.is(value, false);
     }
-    function isBool(value) {
-        return value === true || value === false;
+    function isBoolean(value) {
+        return isTrue(value) || isFalse(value);
     }
+    // Number
     function isNumber(value) {
-        return (typeof value === "number");
+        return ((typeof value === "number") || (typeof value === "bigint")) && !Object.is(value, NaN);
     }
+    // String
     function isString(value) {
         return (typeof value === "string");
     }
@@ -34,6 +38,7 @@
     function isStringEmpty(value) {
         return isString(value) && value.trim() === "";
     }
+    // Array
     function isArray(value) {
         return Array.isArray(value);
     }
@@ -43,17 +48,15 @@
     function isArrayEmpty(value) {
         return isArray(value) && value.length === 0;
     }
+    // Object
     function isObject(value) {
-        return (typeof value === "object") && !isNil(value) && !isArray(value);
+        return (typeof value === "object") && !isNull(value) && !isArray(value);
     }
     function isObjectFilled(value) {
         return isObject(value) && Object.keys(value).length > 0;
     }
     function isObjectEmpty(value) {
         return isObject(value) && Object.keys(value).length === 0;
-    }
-    function isFunction(value) {
-        return (typeof value === "function") && isObject(value);
     }
     function isPlainObject(value) {
         if (!isObject(value)) {
@@ -73,22 +76,39 @@
         }
         return Object.getPrototypeOf(value) === prototypeOf;
     }
+    // Function
+    function isFunction(value) {
+        return (typeof value === "function");
+    }
+    // Symbol
+    function isSymbol(value) {
+        return (typeof value === "symbol");
+    }
+    // Others
+    function isFalsyValue(value) {
+        return isNil(value) || isFalse(value) || Object.is(value, NaN) || isNumberZero(value) || isStringEmpty(value);
+    }
     function isStringContainsString(haystack, needle) {
         if (!isString(haystack) || !isString(needle)) {
             return false;
         }
         return haystack.indexOf(needle) !== -1;
     }
+    function isNumberZero(value) {
+        return isNumber(value) && (value == 0);
+    }
 
     exports.isArray = isArray;
     exports.isArrayEmpty = isArrayEmpty;
     exports.isArrayFilled = isArrayFilled;
-    exports.isBool = isBool;
+    exports.isBoolean = isBoolean;
     exports.isFalse = isFalse;
+    exports.isFalsyValue = isFalsyValue;
     exports.isFunction = isFunction;
     exports.isNil = isNil;
     exports.isNull = isNull;
     exports.isNumber = isNumber;
+    exports.isNumberZero = isNumberZero;
     exports.isObject = isObject;
     exports.isObjectEmpty = isObjectEmpty;
     exports.isObjectFilled = isObjectFilled;
@@ -97,6 +117,7 @@
     exports.isStringContainsString = isStringContainsString;
     exports.isStringEmpty = isStringEmpty;
     exports.isStringFilled = isStringFilled;
+    exports.isSymbol = isSymbol;
     exports.isTrue = isTrue;
     exports.isUndefined = isUndefined;
 
