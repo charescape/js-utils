@@ -28,7 +28,6 @@ const pkgs = [];
 
   pkgs.push({
     input: inputPath,
-    plugins: [typescript()],
     output: [
       {
         name: outputName,
@@ -43,18 +42,6 @@ const pkgs = [];
 
       {
         name: outputName,
-        file: `${outputFileDir}/${outputFileName}.iife.js`,
-        format: 'iife'
-      },
-      {
-        name: outputName,
-        file: `${outputFileDir}/${outputFileName}.iife.min.js`,
-        format: 'iife',
-        plugins: [terser()]
-      },
-
-      {
-        name: outputName,
         file: `${outputFileDir}/${outputFileName}.umd.js`,
         format: 'umd'
       },
@@ -65,6 +52,7 @@ const pkgs = [];
         plugins: [terser()]
       }
     ],
+    plugins: [typescript()],
   });
 });
 
