@@ -21,7 +21,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist/ && rollup -c",
+    "build": "npm run build:types && npm run build:dist",
+    "build:dist": "rm -rf dist/ && rollup -c",
+    "build:types": "rm -rf types/ && tsc --emitDeclarationOnly --moduleResolution node",
     "dev": "rollup -c -w",
     "cypress:open": "cypress open",
     "test": "npm run build && npm run test:node && npm run test:jsdom",
