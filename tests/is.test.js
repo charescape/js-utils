@@ -285,6 +285,7 @@ test('isPlainObject', () => {
   expect(JsUtils.isPlainObject( {} )).toBe(true);
   expect(JsUtils.isPlainObject( {foo: 'bar'} )).toBe(true);
   expect(JsUtils.isPlainObject( {valueOf: 0} )).toBe(true);
+  expect(JsUtils.isPlainObject( Object.prototype )).toBe(true);
   expect(JsUtils.isPlainObject( Object.create(null) )).toBe(true);
   expect(JsUtils.isPlainObject( Object.create(Object.prototype) )).toBe(true);
 
