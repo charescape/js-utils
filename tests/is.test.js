@@ -155,7 +155,6 @@ test('isObject', () => {
   expect(JsUtils.isObject( /foo/ )).toBe(true);
 
   expect(JsUtils.isObject( Math )).toBe(true);
-  expect(JsUtils.isObject( Error )).toBe(true);
   expect(JsUtils.isObject( Object.prototype )).toBe(true);
   expect(JsUtils.isObject( Object.create(null) )).toBe(true);
   expect(JsUtils.isObject( Object.create(Object.prototype) )).toBe(true);
@@ -191,6 +190,7 @@ test('isObject', () => {
   expect(JsUtils.isObject( 'abc' )).toBe(false);
   expect(JsUtils.isObject( 1 )).toBe(false);
   expect(JsUtils.isObject( 1n )).toBe(false);
+  expect(JsUtils.isObject( Error )).toBe(false);
   expect(JsUtils.isObject( NaN )).toBe(false);
   expect(JsUtils.isObject( Number.NaN )).toBe(false);
   expect(JsUtils.isObject( function () {} )).toBe(false);
@@ -200,7 +200,6 @@ test('isObjectEmpty', () => {
   expect(JsUtils.isObjectEmpty( {} )).toBe(true);
   expect(JsUtils.isObjectEmpty( /foo/ )).toBe(true);
   expect(JsUtils.isObjectEmpty( Math )).toBe(true);
-  expect(JsUtils.isObjectEmpty( Error )).toBe(true);
   expect(JsUtils.isObjectEmpty( Object.prototype )).toBe(true);
   expect(JsUtils.isObjectEmpty( Object.create(null) )).toBe(true);
   expect(JsUtils.isObjectEmpty( Object.create(Object.prototype) )).toBe(true);
@@ -230,7 +229,6 @@ test('isObjectFilled', () => {
   expect(JsUtils.isObjectFilled( {} )).toBe(false);
   expect(JsUtils.isObjectFilled( /foo/ )).toBe(false);
   expect(JsUtils.isObjectFilled( Math )).toBe(false);
-  expect(JsUtils.isObjectFilled( Error )).toBe(false);
   expect(JsUtils.isObjectFilled( Object.prototype )).toBe(false);
   expect(JsUtils.isObjectFilled( Object.create(null) )).toBe(false);
   expect(JsUtils.isObjectFilled( Object.create(Object.prototype) )).toBe(false);
@@ -248,6 +246,7 @@ test('isObjectFilled', () => {
 test('isFunction', () => {
   expect(JsUtils.isFunction( function () {} )).toBe(true);
   expect(JsUtils.isFunction( Array.isArray )).toBe(true);
+  expect(JsUtils.isFunction( Error )).toBe(true);
 
   expect(JsUtils.isFunction(  )).toBe(false);
   expect(JsUtils.isFunction( {} )).toBe(false);
