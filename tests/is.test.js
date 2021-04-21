@@ -63,7 +63,7 @@ test('isNumber', () => {
   expect(JsUtils.isNumber( '0' )).toBe(false);
   expect(JsUtils.isNumber( '0.0' )).toBe(false);
   expect(JsUtils.isNumber( false )).toBe(false);
-  expect(JsUtils.isNumber({} )).toBe(false);
+  expect(JsUtils.isNumber( {} )).toBe(false);
 });
 
 
@@ -79,7 +79,7 @@ test('isString', () => {
   expect(JsUtils.isString( null )).toBe(false);
   expect(JsUtils.isString( undefined )).toBe(false);
   expect(JsUtils.isString( false )).toBe(false);
-  expect(JsUtils.isString({} )).toBe(false);
+  expect(JsUtils.isString( {} )).toBe(false);
 });
 
 test('isStringFilled', () => {
