@@ -295,15 +295,8 @@ test('isPlainObject', () => {
   expect(JsUtils.isPlainObject( new ObjectConstructor )).toBe(false);
 
   expect(JsUtils.isPlainObject( /foo/ )).toBe(false);
-  expect(JsUtils.isPlainObject( function () {} )).toBe(false);
-  expect(JsUtils.isPlainObject( 1 )).toBe(false);
-  expect(JsUtils.isPlainObject( ['foo', 'bar'] )).toBe(false);
   expect(JsUtils.isPlainObject( new FnFoo )).toBe(false);
-  expect(JsUtils.isPlainObject( null )).toBe(false);
   expect(JsUtils.isPlainObject( Math )).toBe(false);
-  expect(JsUtils.isPlainObject( Error )).toBe(false);
-  expect(JsUtils.isPlainObject( NaN )).toBe(false);
-  expect(JsUtils.isPlainObject( Number.NaN )).toBe(false);
 
   (function () {
     expect(JsUtils.isPlainObject(arguments)).toBe(false);
