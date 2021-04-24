@@ -4,7 +4,7 @@ import type * as Qs_T from "qs";
 declare const axios: Axios_T.AxiosStatic;
 declare const Qs: typeof Qs_T;
 
-export function ajaxCreate(config: Axios_T.AxiosRequestConfig): Axios_T.AxiosInstance {
+export function ajaxCreate(config?: Axios_T.AxiosRequestConfig): Axios_T.AxiosInstance {
   // see https://github.com/axios/axios/blob/master/lib/defaults.js
   const defaultConfig = {
     method: 'GET',
