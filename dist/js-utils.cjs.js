@@ -122,14 +122,14 @@ var __assign = function() {
     return __assign.apply(this, arguments);
 };
 
-function ajaxCreate(axios, config) {
+function ajaxCreate(config) {
     // see https://github.com/axios/axios/blob/master/lib/defaults.js
     var defaultConfig = {
         method: 'GET',
         timeout: 0,
-        // paramsSerializer: function (params) {
-        //   return Qs.stringify(params, {arrayFormat: 'brackets'})
-        // },
+        paramsSerializer: function (params) {
+            return Qs.stringify(params, { arrayFormat: 'brackets' });
+        },
         // see https://github.com/axios/axios/blob/master/lib/adapters/xhr.js#L126
         // see https://github.com/axios/axios/blob/master/test/specs/xsrf.spec.js#L70-L81
         // xsrfCookieName: 'XSRF-TOKEN', // default
