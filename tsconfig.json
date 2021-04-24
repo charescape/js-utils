@@ -3,8 +3,9 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "ESNext",
+    "moduleResolution": "Node",
     "declaration": true,
-    "sourceMap": false,
-    "declarationDir": "./types"
+    "declarationDir": "./types",
+    "sourceMap": false
   }
 }
