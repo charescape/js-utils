@@ -1,4 +1,3 @@
-
 import type * as Axios_T from "axios";
 import type * as Qs_T from "qs";
 
@@ -11,7 +10,7 @@ export function ajaxCreate(config: Axios_T.AxiosRequestConfig): Axios_T.AxiosIns
     method: 'GET',
     timeout: 0,
 
-    paramsSerializer: (params: any) => {
+    paramsSerializer: (params: any): string => {
       return Qs.stringify(params, {arrayFormat: 'brackets'})
     },
 
