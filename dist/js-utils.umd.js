@@ -151,6 +151,34 @@
         // instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     }
 
+    function swalToast(config) {
+        config = __assign({ 
+            // title: "...",
+            // icon: "success",
+            toast: true, showConfirmButton: false, timer: 3000 }, config);
+        return Swal.fire(config);
+    }
+    function swalToastSuccess(config) {
+        config.icon = "success";
+        return swalToast(config);
+    }
+    function swalAlert(config) {
+        config = __assign({ 
+            // html: `<p>...</p>`,
+            // confirmButtonText: 'Close',
+            width: 500, iconHtml: "<i class=\"bi bi-exclamation-circle text-primary\"></i>", customClass: {
+                icon: 'border-0 mt-0 mb-3',
+                confirmButton: 'btn btn-primary px-4 py-2',
+            }, showClass: {
+                popup: 'animate__animated animate__fadeInUp animate__faster',
+                backdrop: 'swal2-backdrop-show',
+            }, hideClass: {
+                popup: 'animate__animated animate__fadeOutDown animate__faster',
+                backdrop: 'swal2-backdrop-hide',
+            } }, config);
+        return Swal.fire(config);
+    }
+
     exports.ajaxCreate = ajaxCreate;
     exports.isArray = isArray;
     exports.isArrayEmpty = isArrayEmpty;
@@ -174,6 +202,9 @@
     exports.isSymbol = isSymbol;
     exports.isTrue = isTrue;
     exports.isUndefined = isUndefined;
+    exports.swalAlert = swalAlert;
+    exports.swalToast = swalToast;
+    exports.swalToastSuccess = swalToastSuccess;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
