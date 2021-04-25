@@ -27,7 +27,7 @@ export function swalAlert(config: Swal_T.SweetAlertOptions) {
     // html: `<p>...</p>`,
     // confirmButtonText: 'Close',
     width: 500,
-    iconHtml: `<i class="bi bi-exclamation-circle text-primary"></i>`,
+    iconHtml: '<i class="bi bi-exclamation-circle text-primary"></i>',
     customClass: {
       icon: 'border-0 mt-0 mb-3',
       confirmButton: 'btn btn-primary px-4 py-2',
