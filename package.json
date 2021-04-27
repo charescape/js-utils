@@ -53,5 +53,8 @@
     "setupFiles": [
       "./jest-setup.js"
     ]
+  },
+  "dependencies": {
+    "core-js": "^3.11.0"
   }
 }
