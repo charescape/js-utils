@@ -10,6 +10,7 @@ const pkgs = [];
 [
   {name: 'index'},
   {name: 'is'},
+  {name: 'url'},
   {name: 'ajax'},
 ].forEach((pkg) => {
   const isCombined = pkg.name === 'index';
