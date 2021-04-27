@@ -3,33 +3,29 @@ import {isNil, isString, isStringEmpty} from "./is";
 
 declare const Qs: typeof Qs_T;
 
-export function urlGetSearchString(url?: string): string {
-  if (typeof url === "undefined") {
-    url = window.location.search;
-  }
-  if (!isString(url)) {
-    url = window.location.search;
+export function urlGetSearchString(from?: string): string {
+  if (!isString(from)) {
+    from = window.location.search;
   }
 
-  if (url.charAt(0) === '?') {
-    url = url.replace(/^[?]+/, '');
+  // @ts-ignore
+  let result: string = from.trimStart();
+
+  if (result.charAt(0) === '?') {
+    result = result.replace(/^[?]+/, '');
   }
 
-  return url;
+  return result;
 }
 
-export function urlGetSearchParams(url?: string): object {
-  const ss: string = urlGetSearchString(url);
-
-  if (isStringEmpty(ss)) {
-    return {};
-  }
+export function urlGetSearchParams(from?: string): object {
+  const ss: string = urlGetSearchString(from);
 
   return Qs.parse(ss);
 }
 
-export function urlGetSearchParam(param: string, url?: string): any {
-  const params: any = urlGetSearchParams(url);
+export function urlGetSearchParam(param: string, from?: string): any {
+  const params: any = urlGetSearchParams(from);
 
   if (!isNil(params[param])) {
     return params[param];
