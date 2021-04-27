@@ -96,6 +96,29 @@ function isNumberZero(value) {
     return isNumber(value) && (value == 0);
 }
 
+function urlGetSearchString(from) {
+    if (!isString(from)) {
+        from = window.location.search;
+    }
+    // @ts-ignore
+    var result = from.trimStart();
+    if (result.charAt(0) === '?') {
+        result = result.replace(/^[?]+/, '');
+    }
+    return result;
+}
+function urlGetSearchParams(from) {
+    var ss = urlGetSearchString(from);
+    return Qs.parse(ss);
+}
+function urlGetSearchParam(param, from) {
+    var params = urlGetSearchParams(from);
+    if (!isNil(params[param])) {
+        return params[param];
+    }
+    return null;
+}
+
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -203,3 +226,6 @@ exports.isUndefined = isUndefined;
 exports.swalAlert = swalAlert;
 exports.swalToast = swalToast;
 exports.swalToastSuccess = swalToastSuccess;
+exports.urlGetSearchParam = urlGetSearchParam;
+exports.urlGetSearchParams = urlGetSearchParams;
+exports.urlGetSearchString = urlGetSearchString;

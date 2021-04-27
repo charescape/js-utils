@@ -92,6 +92,29 @@ function isNumberZero(value) {
     return isNumber(value) && (value == 0);
 }
 
+function urlGetSearchString(from) {
+    if (!isString(from)) {
+        from = window.location.search;
+    }
+    // @ts-ignore
+    var result = from.trimStart();
+    if (result.charAt(0) === '?') {
+        result = result.replace(/^[?]+/, '');
+    }
+    return result;
+}
+function urlGetSearchParams(from) {
+    var ss = urlGetSearchString(from);
+    return Qs.parse(ss);
+}
+function urlGetSearchParam(param, from) {
+    var params = urlGetSearchParams(from);
+    if (!isNil(params[param])) {
+        return params[param];
+    }
+    return null;
+}
+
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -173,4 +196,4 @@ function swalAlert(config) {
     return Swal.fire(config);
 }
 
-export { ajaxCreate, isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined, swalAlert, swalToast, swalToastSuccess };
+export { ajaxCreate, isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined, swalAlert, swalToast, swalToastSuccess, urlGetSearchParam, urlGetSearchParams, urlGetSearchString };
