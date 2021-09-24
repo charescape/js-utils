@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JsUtils = {}));
-}(this, (function (exports) { 'use strict';
+})(this, (function (exports) { 'use strict';
 
     // Undefined, Null
     function isUndefined(value) {
@@ -234,4 +234,4 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
