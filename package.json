@@ -1,6 +1,6 @@
 {
   "name": "@charescape/js-utils",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Lightweight javascript utilities for node.js and web",
   "keywords": [
     "javascript",
@@ -14,6 +14,7 @@
     "dist/",
     "types/"
   ],
+  "miniprogram": "dist/",
   "author": "Charescape <charescape@outlook.com>",
   "repository": {
     "type": "git",
