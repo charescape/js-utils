@@ -91,6 +91,12 @@ function isStringContainsString(haystack, needle) {
 function isNumberZero(value) {
     return isNumber(value) && (value == 0);
 }
+function isStringContainsChChars(value) {
+    if (!isString(value)) {
+        return false;
+    }
+    return /[\u4e00-\u9fa5]+/g.test(value);
+}
 
 function urlGetSearchString(from) {
     if (!isString(from)) {
@@ -196,4 +202,4 @@ function swalAlert(config) {
     return Swal.fire(config);
 }
 
-export { ajaxCreate, isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined, swalAlert, swalToast, swalToastSuccess, urlGetSearchParam, urlGetSearchParams, urlGetSearchString };
+export { ajaxCreate, isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsChChars, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined, swalAlert, swalToast, swalToastSuccess, urlGetSearchParam, urlGetSearchParams, urlGetSearchString };

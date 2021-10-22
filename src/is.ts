@@ -126,3 +126,11 @@ export function isStringContainsString(haystack: any, needle: any): boolean {
 export function isNumberZero(value: any): boolean {
   return isNumber(value) && (value == 0);
 }
+
+export function isStringContainsChChars (value: any) {
+  if (!isString(value)) {
+    return false;
+  }
+
+  return /[\u4e00-\u9fa5]+/g.test(value);
+}

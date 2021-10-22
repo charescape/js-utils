@@ -368,3 +368,38 @@ test('isFalsyValue', () => {
   expect(JsUtils.isFalsyValue( null )).toBe(true);
   expect(JsUtils.isFalsyValue( undefined )).toBe(true);
 });
+
+test('isStringContainsString', () => {
+  expect(JsUtils.isStringContainsString( '', '' )).toBe(true);
+  expect(JsUtils.isStringContainsString( ' ', '' )).toBe(true);
+  expect(JsUtils.isStringContainsString( '', ' ' )).toBe(false);
+
+  expect(JsUtils.isStringContainsString( 'abc', 'a')).toBe(true);
+  expect(JsUtils.isStringContainsString( 'abc', 'd')).toBe(false);
+
+  expect(JsUtils.isStringContainsString( '123', '1')).toBe(true);
+  expect(JsUtils.isStringContainsString( '123', '23')).toBe(true);
+  expect(JsUtils.isStringContainsString( 123, 1)).toBe(false);
+  expect(JsUtils.isStringContainsString( '123', 1)).toBe(false);
+
+  expect(JsUtils.isStringContainsString( [], '')).toBe(false);
+  expect(JsUtils.isStringContainsString( ['1', '2', '3'], '1')).toBe(false);
+  expect(JsUtils.isStringContainsString( ['1', '2', '3'], '2')).toBe(false);
+});
+
+test('isStringContainsChChars', () => {
+  expect(JsUtils.isStringContainsChChars( '你好' )).toBe(true);
+  expect(JsUtils.isStringContainsChChars( '你好abc' )).toBe(true);
+  expect(JsUtils.isStringContainsChChars( 'abc哈哈' )).toBe(true);
+
+  expect(JsUtils.isStringContainsChChars( '？' )).toBe(false);
+  expect(JsUtils.isStringContainsChChars( '¥' )).toBe(false);
+
+  expect(JsUtils.isStringContainsChChars( '' )).toBe(false);
+  expect(JsUtils.isStringContainsChChars( ' ' )).toBe(false);
+  expect(JsUtils.isStringContainsChChars( '-' )).toBe(false);
+  expect(JsUtils.isStringContainsChChars( '?' )).toBe(false);
+  expect(JsUtils.isStringContainsChChars( '$' )).toBe(false);
+  expect(JsUtils.isStringContainsChChars( '123' )).toBe(false);
+  expect(JsUtils.isStringContainsChChars( 'abc' )).toBe(false);
+});

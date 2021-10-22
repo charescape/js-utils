@@ -91,5 +91,11 @@ function isStringContainsString(haystack, needle) {
 function isNumberZero(value) {
     return isNumber(value) && (value == 0);
 }
+function isStringContainsChChars(value) {
+    if (!isString(value)) {
+        return false;
+    }
+    return /[\u4e00-\u9fa5]+/g.test(value);
+}
 
-export { isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined };
+export { isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsChChars, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined };

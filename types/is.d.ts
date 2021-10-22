@@ -20,3 +20,4 @@ export declare function isSymbol(value: any): boolean;
 export declare function isFalsyValue(value: any): boolean;
 export declare function isStringContainsString(haystack: any, needle: any): boolean;
 export declare function isNumberZero(value: any): boolean;
+export declare function isStringContainsChChars(value: any): boolean;
