@@ -127,7 +127,7 @@ export function isNumberZero(value: any): boolean {
   return isNumber(value) && (value == 0);
 }
 
-export function isStringContainsChChars (value: any) {
+export function isStringContainsChChars(value: any): boolean {
   if (!isString(value)) {
     return false;
   }
