@@ -3,7 +3,6 @@ import _camelCase from 'lodash-es/camelCase.js';
 import _upperFirst from 'lodash-es/upperFirst.js';
 
 import typescript from '@rollup/plugin-typescript';
-import replace from '@rollup/plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 
 const pkgs = [];
@@ -54,15 +53,7 @@ const pkgs = [];
         plugins: [terser()]
       }
     ],
-    plugins: [
-      typescript(),
-      replace({
-        preventAssignment: true,
-        values: {
-
-        }
-      }),
-    ],
+    plugins: [typescript()],
   });
 });
 
