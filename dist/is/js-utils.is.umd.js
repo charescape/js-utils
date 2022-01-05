@@ -1,3 +1,5 @@
+/*! JsUtils_Is 2022-01-05T07:36:34.139Z */
+
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :

@@ -1,3 +1,5 @@
+/*! JsUtils_Is 2022-01-05T07:36:34.139Z */
+
 // Undefined, Null
 function isUndefined(value) {
     return Object.is(value, undefined);
