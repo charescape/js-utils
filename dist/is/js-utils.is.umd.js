@@ -1,4 +1,4 @@
-/*! JsUtils_Is 2022-01-05T08:09:37.936Z */
+/*! JsUtils_Is 2022-02-14T02:29:17.933Z */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
