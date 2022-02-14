@@ -1,5 +1,5 @@
 import type * as Qs_T from "qs";
-import {isNil, isString, isStringEmpty} from "./is";
+import {isNil, isString} from "./is";
 
 declare const Qs: typeof Qs_T;
 
