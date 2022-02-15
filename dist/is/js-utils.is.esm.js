@@ -1,4 +1,4 @@
-/*! JsUtils_Is 2022-02-14T02:29:17.933Z */
+/*! JsUtils_Is 2022-02-15T08:31:03.810Z */
 
 // Undefined, Null
 function isUndefined(value) {
@@ -23,6 +23,26 @@ function isBoolean(value) {
 // Number
 function isNumber(value) {
     return ((typeof value === "number") || (typeof value === "bigint")) && !Object.is(value, NaN);
+}
+function isInteger(value) {
+    return Number.isInteger(value);
+}
+function isIntegeric(value) {
+    if (isInteger(value)) {
+        return true;
+    }
+    if (isString(value)) {
+        if (value === "0") {
+            return true;
+        }
+        if (value.charAt(0) === "-") {
+            value = value.slice(1);
+        }
+        if (/^[1-9]\d*$/.test(value)) {
+            return true;
+        }
+    }
+    return false;
 }
 // String
 function isString(value) {
@@ -100,4 +120,4 @@ function isStringContainsChChars(value) {
     return /[\u4e00-\u9fa5]+/g.test(value);
 }
 
-export { isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsChChars, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined };
+export { isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isInteger, isIntegeric, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsChChars, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined };

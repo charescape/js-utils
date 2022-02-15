@@ -1,4 +1,4 @@
-/*! JsUtils_Is 2022-02-14T02:29:17.933Z */
+/*! JsUtils_Is 2022-02-15T08:31:03.810Z */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
@@ -29,6 +29,26 @@
     // Number
     function isNumber(value) {
         return ((typeof value === "number") || (typeof value === "bigint")) && !Object.is(value, NaN);
+    }
+    function isInteger(value) {
+        return Number.isInteger(value);
+    }
+    function isIntegeric(value) {
+        if (isInteger(value)) {
+            return true;
+        }
+        if (isString(value)) {
+            if (value === "0") {
+                return true;
+            }
+            if (value.charAt(0) === "-") {
+                value = value.slice(1);
+            }
+            if (/^[1-9]\d*$/.test(value)) {
+                return true;
+            }
+        }
+        return false;
     }
     // String
     function isString(value) {
@@ -113,6 +133,8 @@
     exports.isFalse = isFalse;
     exports.isFalsyValue = isFalsyValue;
     exports.isFunction = isFunction;
+    exports.isInteger = isInteger;
+    exports.isIntegeric = isIntegeric;
     exports.isNil = isNil;
     exports.isNull = isNull;
     exports.isNumber = isNumber;

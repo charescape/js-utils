@@ -1,4 +1,4 @@
-/*! JsUtils 2022-02-14T02:29:17.914Z */
+/*! JsUtils 2022-02-15T08:31:03.790Z */
 
 // Undefined, Null
 function isUndefined(value) {
@@ -23,6 +23,26 @@ function isBoolean(value) {
 // Number
 function isNumber(value) {
     return ((typeof value === "number") || (typeof value === "bigint")) && !Object.is(value, NaN);
+}
+function isInteger(value) {
+    return Number.isInteger(value);
+}
+function isIntegeric(value) {
+    if (isInteger(value)) {
+        return true;
+    }
+    if (isString(value)) {
+        if (value === "0") {
+            return true;
+        }
+        if (value.charAt(0) === "-") {
+            value = value.slice(1);
+        }
+        if (/^[1-9]\d*$/.test(value)) {
+            return true;
+        }
+    }
+    return false;
 }
 // String
 function isString(value) {
@@ -204,4 +224,4 @@ function swalAlert(config) {
     return Swal.fire(config);
 }
 
-export { ajaxCreate, isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsChChars, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined, swalAlert, swalToast, swalToastSuccess, urlGetSearchParam, urlGetSearchParams, urlGetSearchString };
+export { ajaxCreate, isArray, isArrayEmpty, isArrayFilled, isBoolean, isFalse, isFalsyValue, isFunction, isInteger, isIntegeric, isNil, isNull, isNumber, isNumberZero, isObject, isObjectEmpty, isObjectFilled, isPlainObject, isString, isStringContainsChChars, isStringContainsString, isStringEmpty, isStringFilled, isSymbol, isTrue, isUndefined, swalAlert, swalToast, swalToastSuccess, urlGetSearchParam, urlGetSearchParams, urlGetSearchString };

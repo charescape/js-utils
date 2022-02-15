@@ -5,6 +5,8 @@ export declare function isTrue(value: any): boolean;
 export declare function isFalse(value: any): boolean;
 export declare function isBoolean(value: any): boolean;
 export declare function isNumber(value: any): boolean;
+export declare function isInteger(value: any): boolean;
+export declare function isIntegeric(value: any): boolean;
 export declare function isString(value: any): boolean;
 export declare function isStringFilled(value: any): boolean;
 export declare function isStringEmpty(value: any): boolean;
