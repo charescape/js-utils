@@ -66,6 +66,52 @@ test('isNumber', () => {
   expect(JsUtils.isNumber( {} )).toBe(false);
 });
 
+// Integer
+test('isInteger', () => {
+  expect(JsUtils.isInteger( 0 )).toBe(true);
+  expect(JsUtils.isInteger( 1 )).toBe(true);
+  expect(JsUtils.isInteger( -1 )).toBe(true);
+
+  expect(JsUtils.isInteger( NaN )).toBe(false);
+  expect(JsUtils.isInteger( Number.NaN )).toBe(false);
+  expect(JsUtils.isInteger( null )).toBe(false);
+  expect(JsUtils.isInteger( undefined )).toBe(false);
+  expect(JsUtils.isInteger( '' )).toBe(false);
+  expect(JsUtils.isInteger( ' ' )).toBe(false);
+  expect(JsUtils.isInteger( '0' )).toBe(false);
+  expect(JsUtils.isInteger( false )).toBe(false);
+  expect(JsUtils.isInteger( {} )).toBe(false);
+});
+
+// Integeric
+test('isIntegeric', () => {
+  expect(JsUtils.isIntegeric( 0 )).toBe(true);
+  expect(JsUtils.isIntegeric( 1 )).toBe(true);
+  expect(JsUtils.isIntegeric( -1 )).toBe(true);
+
+  expect(JsUtils.isIntegeric( '0' )).toBe(true);
+  expect(JsUtils.isIntegeric( '-0' )).toBe(false);
+  expect(JsUtils.isIntegeric( '+0' )).toBe(false);
+  expect(JsUtils.isIntegeric( '00' )).toBe(false);
+
+  expect(JsUtils.isIntegeric( '1' )).toBe(true);
+  expect(JsUtils.isIntegeric( '-1' )).toBe(true);
+
+  expect(JsUtils.isIntegeric( '123' )).toBe(true);
+  expect(JsUtils.isIntegeric( '-123' )).toBe(true);
+
+  expect(JsUtils.isIntegeric( '0123' )).toBe(false);
+
+  expect(JsUtils.isIntegeric( NaN )).toBe(false);
+  expect(JsUtils.isIntegeric( Number.NaN )).toBe(false);
+  expect(JsUtils.isIntegeric( null )).toBe(false);
+  expect(JsUtils.isIntegeric( undefined )).toBe(false);
+  expect(JsUtils.isIntegeric( '' )).toBe(false);
+  expect(JsUtils.isIntegeric( ' ' )).toBe(false);
+  expect(JsUtils.isIntegeric( false )).toBe(false);
+  expect(JsUtils.isIntegeric( {} )).toBe(false);
+});
+
 
 // String
 test('isString', () => {

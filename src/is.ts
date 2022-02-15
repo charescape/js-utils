@@ -32,6 +32,32 @@ export function isNumber(value: any): boolean {
   return ((typeof value === "number") || (typeof value === "bigint")) && !Object.is(value, NaN);
 }
 
+export function isInteger(value: any): boolean {
+  return Number.isInteger(value);
+}
+
+export function isIntegeric(value: any): boolean {
+  if (isInteger(value)) {
+    return true;
+  }
+
+  if (isString(value)) {
+    if (value === "0") {
+      return true;
+    }
+
+    if (value.charAt(0) === "-") {
+      value = value.slice(1);
+    }
+
+    if (/^[1-9]\d*$/.test(value)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 
 // String
 export function isString(value: any): boolean {
