@@ -48,7 +48,7 @@
     "rollup": "^2.67",
     "rollup-plugin-terser": "^7.0",
     "sweetalert2": "^11.4",
-    "tslib": "^2.2",
+    "tslib": "^2.4",
     "typescript": "^4.5"
   },
   "jest": {
